@@ -5,6 +5,20 @@ from sqlalchemy import pool
 
 from alembic import context
 
+from database import Base  # Adjust the import according to your project structure
+from models.author import Author  # Adjust the import according to your project structure
+from models.book import Book
+from models.genre import Genre
+from models.publisher import Publisher
+from models.member import Member
+from models.loan import Loan
+from models.staff import Staff
+from models.library import Library
+from models.section import Section
+from models.review import Review
+
+target_metadata = Base.metadata
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -19,6 +33,7 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 target_metadata = None
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -76,3 +91,4 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
+
